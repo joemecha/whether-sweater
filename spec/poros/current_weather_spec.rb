@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CurrentWeather do
   describe 'it encapsulates current weather data' do 
     it 'holds current weather data' do 
-      current_info = "current": {
+      current_info = {
         "dt": 1623532622,
         "sunrise": 1623497510,
         "sunset": 1623551460,
@@ -29,19 +29,18 @@ RSpec.describe CurrentWeather do
        }
 
       current = CurrentWeather.new(current_info)
-
       expect(current.datetime.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-13 16:16:16 00000")
+      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.sunrise.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-13 16:16:16 00000")
+      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.sunset.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-13 16:16:16 00000")
+      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.temperature.class).to eq(Float)
       expect(current.feels_like.class).to eq(Float)
       expect(current.uvi.class).to eq(Float)
       expect(current.visibility.class).to eq(Integer)
       expect(current.visibility.class).to eq(Integer)
-      expect(current.description.class).to eq(String)
+      expect(current.conditions.class).to eq(String)
       expect(current.icon.class).to eq(String)
     end
   end
