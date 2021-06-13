@@ -6,8 +6,12 @@ class Forecast
 
   def initialize(data)
     @id = nil
-    @current_weather = CurrentWeather.new(data)
-    @daily_weather = DailyWeather.new(data)
-    @hourly_weather = HourlyWeather.new(data)
+    @current_weather = CurrentWeather.new(data[:current])
+    @daily_weather = data[:daily][0..4].map do |day|
+      DailyWeather.new(day)
+    end 
+    @hourly_weather = data[:hourly][0..7].map do |hour|
+      HourlyWeather.new(hour)
+    end 
   end
 end
