@@ -11,11 +11,8 @@ RSpec.describe "Coordinates Service", :vcr do
       expect(results).to have_key(:lng)
     end 
   end
-  describe "Sad Path - bad location params", :vcr do 
-    it "Returns 'no match' message if location not found" do 
-      location = "?😛"
-      results = CoordinatesService.fetch_lat_lon(location)
-      expect(results).to be_a(String)
-    end
+  describe "Sad Path - bad location params" do 
+    # A default location {:lat=>39.390897, :lng=>-99.066067} is returned
+    # by the API. This is checked in the weather facade, e.g. location = "?😛"
   end
 end

@@ -4,7 +4,6 @@ class CoordinatesService
       f.params['location'] = location
     end
     json = parse_json(response)
-    # return "No match for this query" if response.env.request_body.nil? # Handles unexpected characters in location
     json[:results].first[:locations].first[:latLng]
   end
 
