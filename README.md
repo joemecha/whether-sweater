@@ -9,6 +9,8 @@ This back-end exposes an API that satisfies a hypothetical front-end team’s re
 
 ## Table of contents
 [**About**](#about) |
+[**Goals**](#goals) |
+[**Getting Started**](#getting-started) |
 [**Versions**](#versions) |
 [**Setup**](#setup) |
 [**Endpoints**](#endpoints) |
@@ -18,8 +20,15 @@ This back-end exposes an API that satisfies a hypothetical front-end team’s re
 [**Developer**](#developer) |
 [**Acknowledgements**](#acknowledgements) 
 
+## Goals
+* Expose an API that aggregates data from multiple external APIs
+* Expose an API that requires an authentication token
+* Expose an API for CRUD functionality
+* Determine completion criteria based on the needs of other developers
+* Research, select, and consume an API based on your needs as a developer
+
 ## Getting Started
-Visit us on [Heroku](https://downdraft-backend.herokuapp.com/) or on [Local Host 3000](http://localhost:3000/) to get started with the steps below.
+Visit [Heroku](https://downdraft-backend.herokuapp.com/) or on [Local Host 3000](http://localhost:3000/) to get started with the steps below.
 
 ## Versions
 * Ruby 2.5.3
