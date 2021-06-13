@@ -1,9 +1,7 @@
 class WeatherFacade
-  def get_forecast_for_a_city(location)
+  def self.get_forecast_for_a_city(location)
     json = WeatherService.fetch_forecast_for_a_city(location)
-    # add required data here
-    # assign to variables as needed to pass to PORO
-    WeatherInfo.new(info)
+    Forecast.new(json)
     # ADD ERROR HANDLING
   end
 end

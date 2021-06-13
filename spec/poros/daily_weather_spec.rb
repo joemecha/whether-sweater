@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DailyWeather do
-  describe 'it encapsulates current weather data' do 
-    it 'holds daily weather data for five days' do 
+  describe 'it encapsulates daily weather data' do 
+    it 'holds daily weather data for one of five days' do 
       daily_info = {
         "dt": 1623524400,
         "sunrise": 1623497510,
