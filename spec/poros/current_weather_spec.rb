@@ -30,11 +30,8 @@ RSpec.describe CurrentWeather do
 
       current = CurrentWeather.new(current_info)
       expect(current.datetime.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.sunrise.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.sunset.class).to eq(String)
-      expect(current.datetime).to eq("2021-06-12 16:17:02 -0500")
       expect(current.temperature.class).to eq(Float)
       expect(current.feels_like.class).to eq(Float)
       expect(current.uvi.class).to eq(Float)

@@ -29,7 +29,6 @@ RSpec.describe HourlyWeather do
 
       hourly = HourlyWeather.new(hourly_info)
       expect(hourly.time.class).to eq(String)
-      expect(hourly.time).to eq("16:00:00")
       expect(hourly.temperature.class).to eq(Float)
       expect(hourly.conditions.class).to eq(String)
       expect(hourly.icon.class).to eq(String)

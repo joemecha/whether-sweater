@@ -45,11 +45,8 @@ RSpec.describe DailyWeather do
 
       daily = DailyWeather.new(daily_info)
       expect(daily.date.class).to eq(String)
-      expect(daily.date).to eq("2021-06-12 14:00:00 -0500")
       expect(daily.sunrise.class).to eq(String)
-      expect(daily.sunrise).to eq("2021-06-12 06:31:50 -0500")
       expect(daily.sunset.class).to eq(String)
-      expect(daily.sunset).to eq("2021-06-12 21:31:00 -0500")
       expect(daily.max_temp.class).to eq(Float)
       expect(daily.min_temp.class).to eq(Float)
       expect(daily.conditions.class).to eq(String)

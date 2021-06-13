@@ -1,5 +1,5 @@
 ![Title](lib/images/whether_sweater_title.jpg)
-
+[![Build Status](https://travis-ci.com/joemecha/whether-sweather.svg?branch=main)](https://travis-ci.com/joemecha/whether-sweater)
 
 ## About
 This project is the back end of a service-oriented app that allows users to see the current weather as well as the forecasted weather at the destination.
