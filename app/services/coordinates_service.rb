@@ -7,13 +7,11 @@ class CoordinatesService
     json[:results].first[:locations].first[:latLng]
   end
 
-  private
-
   def self.conn
-    conn = Faraday.new('http://www.mapquestapi.com', params: { key: ENV['geocode_key'] })
+    Faraday.new('http://www.mapquestapi.com', params: { key: ENV['geocode_key'] })
   end
 
   def self.parse_json(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-end 
+end
