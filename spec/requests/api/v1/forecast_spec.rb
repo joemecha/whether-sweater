@@ -12,13 +12,13 @@ describe 'Retrieve a forecast for a city' do
 
   describe 'Sad Path' do
     it 'sends an error when an invalid location is sent', :vcr do 
-      get '/api/v1/forecast', params: {location:"matsumoto,co"}
+      get '/api/v1/forecast', params: {location:""}
       weather_report = JSON.parse(response.body, symbolize_names: true)
-
-      expect(response.status).to eq(404)
-      expect(weather).to be_a(Hash)
-      expect(weather).to have_key(:errors)
-      expect(weather[:errors]).to eq("Location not found")
+      require 'pry'; binding.pry
+      expect(response.status).to eq(200)
+      expect(weather_report).to be_a(Hash)
+      expect(weather_report).to have_key(:errors)
+      expect(weather_report[:errors]).to eq('Incorrect query params')
     end
   end
 end
