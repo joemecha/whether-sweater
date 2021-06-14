@@ -1,14 +1,15 @@
 class ImageService
   def self.fetch_background_image(location)
-    response = conn.get("/search/photos?page=1&per_page=1&orientation=landscape&query=#{location}&client_id=#{}") do |f|
+    key = ENV['access_key']
+    response = conn.get("/search/photos?per_page=1&orientation=landscape&query=#{location}&client_id=#{key}") do |f|
       f.params['location'] = location
     end
     json = parse_json(response)
-    json[:results].first[:locations].first[:latLng]
+    json[:results].first
   end
 
   def self.conn
-    Faraday.new('https://api.unsplash.com', params: { key: ENV['access_key'] })
+    Faraday.new('https://api.unsplash.com')
   end
 
   def self.parse_json(response)
