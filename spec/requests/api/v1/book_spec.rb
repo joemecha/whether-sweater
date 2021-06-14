@@ -6,8 +6,7 @@ describe 'Retrieve a list of books for a city' do
       get '/api/v1/book-search', params: {location:"denver,co", quantity:"7"}
       book_list = JSON.parse(response.body,symbolize_names: true)
       expect(response).to be_successful
-      expect(list).to be_a Hash
-      require 'pry'; binding.pry
+      expect(book_list).to be_a Hash
     end
   end
 
