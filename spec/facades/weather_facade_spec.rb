@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'WeatherFacade', :vcr do 
+RSpec.describe 'WeatherFacade' do 
   describe "Happy path - data returned as expected" do
     it 'returns current_weather daily_weather, hourly_weather data for a location', :vcr do 
       location = "boulder,co"
