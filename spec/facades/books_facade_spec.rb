@@ -5,7 +5,7 @@ RSpec.describe 'BooksFacade' do
     it 'returns quantity and books about the destination city', :vcr do 
       location = "denver,co"
       response = BooksFacade.get_books_for_a_city(location)
-      expect(response).to be_a(BookList)
+      expect(response).to be_a(Book)
     end
   end 
 end
