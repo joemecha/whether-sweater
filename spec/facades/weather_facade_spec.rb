@@ -10,11 +10,11 @@ RSpec.describe 'WeatherFacade', :vcr do
   end 
   describe "Sad path" do
     describe "Bad location query params" do
-    it 'returns error message', :vcr do 
-      location = "?😛"
-      response = WeatherFacade.get_forecast_for_a_city(location)
-      expect(response).to eq(:error)
-    end
-  end 
+      it 'returns error message', :vcr do 
+        location = "?😛"
+        response = WeatherFacade.get_forecast_for_a_city(location)
+        expect(response).to eq(:error)
+      end
+    end 
   end 
 end
