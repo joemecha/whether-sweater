@@ -4,6 +4,7 @@ RSpec.describe Book do
   describe 'it returns all required book and current weather data for provided location' do
     it 'contains destination, forecast, total_books_found, and books' do
       location = "denver,co"
+      quantity = "3"
       book_data = {
         "numFound": 35992,
         "start": 0,
@@ -909,7 +910,7 @@ RSpec.describe Book do
       ]
           }
 
-      book_info = Book.new(location, book_data, weather_data)
+      book_info = Book.new(location, quantity, book_data, weather_data)
       expect(book_info.id).to eq(nil)
       expect(book_info.destination.class).to eq(String)
       expect(book_info.forecast.class).to eq(BookForecast)

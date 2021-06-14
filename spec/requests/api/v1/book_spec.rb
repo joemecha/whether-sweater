@@ -7,11 +7,12 @@ describe 'Retrieve a list of books for a city' do
       book_list = JSON.parse(response.body,symbolize_names: true)
       expect(response).to be_successful
       expect(list).to be_a Hash
+      require 'pry'; binding.pry
     end
   end
 
   describe 'Sad Path' do
-    it 'Sends an error message when location not found', :vcr do
+    xit 'Sends an error message when location not found', :vcr do
       get '/api/v1/book-search', params: {location:"", quantity:"7"}
       weather_report = JSON.parse(response.body,symbolize_names: true)
 
@@ -20,7 +21,7 @@ describe 'Retrieve a list of books for a city' do
       expect(weather_report).to have_key(:errors)
       expect(weather_report[:errors]).to eq("Missing or incorrect query params")
     end
-    it 'Sends an error message when quantity is less than one', :vcr do
+    xit 'Sends an error message when quantity is less than one', :vcr do
       get '/api/v1/book-search', params: {location:"denver,co", quantity:"0"}
       weather_report = JSON.parse(response.body,symbolize_names: true)
 
