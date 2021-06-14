@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Image do
-  describe 'it returns all required image data for provided location' do
-    it 'contains image url, location, and image credits' do
-      data = {
+RSpec.describe ImageDetails do
+  describe 'it encapsulates image detail data' do 
+    it 'holds image url, photo discription and credits(poro)' do 
+      image_info = {
             "id": "A4RpHR83luM",
             "created_at": "2021-05-01T04:12:54-04:00",
             "updated_at": "2021-06-13T03:22:14-04:00",
@@ -160,13 +160,13 @@ RSpec.describe Image do
                     "type": "search",
                     "title": "urban"
                 }
-            ]
-        }
+              ]
+            }
 
-      image = Image.new(data)
-      expect(image.id).to eq(nil)
-      expect(image.class).to eq(Image)
-      expect(image.image.class).to eq(ImageDetails)
-    end
-  end 
-end 
+      details = ImageDetails.new(image_info)
+      expect(details.image_url.class).to eq(String)
+      expect(details.description.class).to eq(String)
+      expect(details.credits.class).to eq(ImageCredits)
+    end 
+  end
+end
