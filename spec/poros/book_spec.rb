@@ -9,10 +9,9 @@ RSpec.describe Book do
       book_info = Book.new(book_data, current_weather_data)
       expect(book_info.id).to eq(nil)
       expect(book_info.destination.class).to eq(String)
-      expect(book_info.forecast.class).to eq()
-      expect(book_info.daily_weather.count).to eq(5)
-      expect(book_info.hourly_weather.class).to eq(Array)
-      expect(book_info.hourly_weather.count).to eq(8)
+      expect(book_info.forecast.class).to eq(BookForecast)
+      expect(book_info.total_books_found.class).to eq(Integer)
+      expect(book_info.books.class).to eq(Array)
     end
   end 
 end 
