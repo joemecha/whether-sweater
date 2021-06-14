@@ -1,6 +1,6 @@
 ![Title](lib/images/whether_sweater_title.jpg)
 [![Build Status](https://travis-ci.com/joemecha/whether-sweather.svg?branch=main)](https://travis-ci.com/joemecha/whether-sweater)
-
+[![Rails Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop-rails)
 ## About
 This project is the back end of a service-oriented app that allows users to see the current weather as well as the forecasted weather at the destination.
 

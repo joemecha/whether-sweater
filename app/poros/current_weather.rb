@@ -24,6 +24,6 @@ class CurrentWeather
   end
 
   def readable_time(unix_input)
-    Time.at(unix_input).strftime("%Y-%m-%e %H:%M:%S %z")
+    Time.zone.at(unix_input).strftime('%Y-%m-%e %H:%M:%S %z')
   end
 end

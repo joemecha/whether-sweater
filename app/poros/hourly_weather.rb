@@ -12,6 +12,6 @@ class HourlyWeather
   end
 
   def hourly_time(unix_input)
-    Time.at(unix_input).strftime("%H:%M:%S")
+    Time.zone.at(unix_input).strftime('%H:%M:%S')
   end
 end

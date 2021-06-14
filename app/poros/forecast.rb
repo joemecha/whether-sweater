@@ -9,9 +9,9 @@ class Forecast
     @current_weather = CurrentWeather.new(data[:current])
     @daily_weather = data[:daily][0..4].map do |day|
       DailyWeather.new(day)
-    end 
+    end
     @hourly_weather = data[:hourly][0..7].map do |hour|
       HourlyWeather.new(hour)
-    end 
+    end
   end
 end
