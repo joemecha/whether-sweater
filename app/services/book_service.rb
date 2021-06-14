@@ -1,8 +1,7 @@
 class BookService
   def self.fetch_books(location)
     response = conn.get("/search.json?q=#{location}")
-    json = parse_json(response)
-    json[:results]
+    parse_json(response)
   end
 
   def self.conn
