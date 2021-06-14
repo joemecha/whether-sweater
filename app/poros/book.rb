@@ -10,7 +10,7 @@ class Book
     @destination = location 
     @forecast = BookForecast.new(weather_data)
     @total_books_found = book_data[:numFound]
-    @books = book_data[:works].map do |book|
+    @books = book_data[:docs].map do |book|
       OneBook.new(book)
     end
   end
