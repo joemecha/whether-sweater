@@ -23,7 +23,8 @@ Joe Mecha [GitHub](https://github.com/joemecha) • [LinkedIn](https://www.linke
 [**Tests**](#running-the-tests) |
 [**Deployment**](#deployment) |
 [**Developer**](#developer) |
-[**Acknowledgements**](#acknowledgements) 
+[**Acknowledgements**](#acknowledgements) |
+[**Extensions**](#extensions) |
 
 ## Goals
 * Expose an API that aggregates data from multiple external APIs
@@ -251,6 +252,10 @@ Run all tests in application with `bundle exec rspec`. When test is complete, ru
 
 <!-- ![Screenshot](lib/images/ADD-A-SCREENSHOT) -->
 
+## Extensions
+- Implement Rubocop for strong Ruby code styling (in progress/complete)
+- Implement `has_secure_token` to generate API keys (planned)
+- Implement Brakeman to identify and fix vulnerabilities (planned)
 
 ## Acknowledgments
 
