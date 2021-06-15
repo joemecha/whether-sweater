@@ -8,13 +8,14 @@ RSpec.describe 'WeatherFacade' do
       expect(response).to be_a(Forecast)
     end
   end 
-  describe "Sad path" do
-    describe "Bad location query params" do
-      it 'returns error message', :vcr do 
-        location = "?😛"
-        response = WeatherFacade.get_forecast_for_a_city(location)
-        expect(response).to eq(:error)
-      end
-    end 
-  end 
+  # Non-ASCII characters blocked at controller level - test moved to REQUEST
+  # describe "Sad path" do
+  #   describe "Bad location query params" do
+  #     it 'returns error message', :vcr do 
+  #       location = "?😛"
+  #       response = WeatherFacade.get_forecast_for_a_city(location)
+  #       expect(response).to eq(:error)
+  #     end
+  #   end 
+  # end 
 end
