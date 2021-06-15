@@ -8,13 +8,5 @@ RSpec.describe 'BackgroundsFacade' do
       expect(response).to be_a(Image)
     end
   end 
-  describe "Sad path" do
-    describe "Bad location query params" do
-      xit 'returns error message', :vcr do 
-        location = "?😛"
-        response = BackgroundsFacade.get_background_image_for_a_city(location)
-        expect(response).to eq(:error)
-      end
-    end 
-  end 
+  # Sad path handled at controller level. Test moved to Request Spec.
 end
