@@ -1,8 +1,7 @@
-class User < ApplicationRecord
-  validates :email, presence: true
-                    uniqueness: true
-            :password, presence: true 
-            :password_confirmation, presence: true 
+class User < ApplicationRecord::Base 
+  has_secure_password 
+
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   private
 
