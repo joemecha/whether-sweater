@@ -36,7 +36,6 @@ RSpec.describe CurrentWeather do
       expect(current.feels_like.class).to eq(Float)
       expect(current.uvi.class).to eq(Float)
       expect(current.visibility.class).to eq(Integer)
-      expect(current.visibility.class).to eq(Integer)
       expect(current.conditions.class).to eq(String)
       expect(current.icon.class).to eq(String)
     end

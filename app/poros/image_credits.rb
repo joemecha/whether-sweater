@@ -3,7 +3,6 @@ class ImageCredits
               :description,
               :source
 
-
   def initialize(data)
     @author = data[:name]
     @source = data[:links][:html]
