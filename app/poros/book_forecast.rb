@@ -4,6 +4,6 @@ class BookForecast
 
   def initialize(data)
     @summary = data[:current][:weather].first[:description]
-    @temperature = (data[:current][:temp].round.to_s + " F")
+    @temperature = "#{data[:current][:temp].round} F"
   end
 end

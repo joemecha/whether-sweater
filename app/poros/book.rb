@@ -8,10 +8,10 @@ class Book
   def initialize(location, quantity, book_data, weather_data)
     @id = nil
     quantity = quantity.to_i
-    @destination = location 
+    @destination = location
     @forecast = BookForecast.new(weather_data)
     @total_books_found = book_data[:numFound]
-    @books = book_data[:docs][0..(quantity -1)].map do |book|
+    @books = book_data[:docs][0..(quantity - 1)].map do |book|
       OneBook.new(book)
     end
   end

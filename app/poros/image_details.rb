@@ -3,7 +3,6 @@ class ImageDetails
               :description,
               :credits
 
-
   def initialize(data)
     @image_url = data[:urls][:full]
     @description = data[:description]
