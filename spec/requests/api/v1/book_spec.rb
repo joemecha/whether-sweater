@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'Retrieve a list of books for a city' do
+describe 'Book Search Request - /api/v1/book-search' do
   describe 'Happy Path' do
-    it 'Sends all required destination, forecast, and books data', :vcr do
+    it 'Sends all required destination, forecast, and books data with correct params', :vcr do
       get '/api/v1/book-search', params: {location:"denver,co", quantity:"7"}
       book_list = JSON.parse(response.body,symbolize_names: true)
       expect(response).to be_successful

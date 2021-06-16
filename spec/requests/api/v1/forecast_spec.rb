@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Retrieve a forecast for a city' do
+describe 'Forecast Request - /api/v1/forecast' do
   describe 'Happy Path' do
     it 'Sends required all forecast data', :vcr do
       get '/api/v1/forecast', params: {location:"boulder,co"}
