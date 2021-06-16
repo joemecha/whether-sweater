@@ -140,10 +140,11 @@ RSpec.describe RoadTrip do
         "messages": []
     }
 }
+      travel_time = "11 hours and 34 minutes"
       temperature = 89.9
       conditions = "clear sky"
 
-      roadtrip = RoadTrip.new(route_info, temperature, conditions)
+      roadtrip = RoadTrip.new(route_info, travel_time, temperature, conditions)
       expect(roadtrip.start_city.class).to eq(String)
       expect(roadtrip.end_city.class).to eq(String)
       expect(roadtrip.travel_time.class).to eq(String)
