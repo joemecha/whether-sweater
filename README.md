@@ -1,6 +1,7 @@
 ![Title](lib/images/whether_sweater_title.jpg)
 [![Build Status](https://travis-ci.com/joemecha/whether-sweather.svg?branch=main)](https://travis-ci.com/joemecha/whether-sweater)
 [![Rails Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop-rails)
+
 ## About
 This project is the back end of a service-oriented app that allows users to see the current weather as well as the forecasted weather at the destination.
 
@@ -21,10 +22,11 @@ Joe Mecha [GitHub](https://github.com/joemecha) • [LinkedIn](https://www.linke
 [**Endpoints**](#endpoints) |
 [**Examples**](#examples) |
 [**Tests**](#running-the-tests) |
-[**Deployment**](#deployment) |
-[**Developer**](#developer) |
 [**Acknowledgements**](#acknowledgements) |
 [**Extensions**](#extensions) |
+
+### Screenshot
+![Screenshot](lib/images/whether-sweater-postman-demo.gif)
 
 ## Goals
 * Expose an API that aggregates data from multiple external APIs
@@ -82,6 +84,28 @@ The following are all API endpoints. Note, some endpoints have optional or requi
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
 | `GET`    | `/api/v1/book-search?location=denver,co&quantity=7` | Retrieve a list of books for a (well-known) city.                      |
+
+
+### 2-User Registration:
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `POST`    | `/api/v1/users` | To be utilized by front end. Successful request adds a new user to the database. Encrypts password and replies with unique api key.                      |
+
+
+### 3-User Authentication:
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `POST`    | `/api/v1/sessions` | To be utilized by front end. Checks user credentials and responds with API key                      |
+
+
+### 4-Road Trip:
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `POST`    | `/api/v1/road_trip` | To be utilized by front end. Provides travel time and weather forecast at destination at ETA.                      |
+
 
 
 ## Examples
@@ -235,28 +259,109 @@ body:
 }
 ```
 
+### 2-User Registration
+_Request_
+```
+POST /api/v1/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+```
+_Response_
+```
+status: 201
+body:
+
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
+}
+```
+
+### 3-User Authentication
+_Request_
+```
+POST /api/v1/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "whatever@example.com",
+  "password": "password"
+}
+```
+_Response_
+```
+status: 200
+body:
+
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "email": "whatever@example.com",
+      "api_key": "jgn983hy48thw9begh98h4539h4"
+    }
+  }
+}
+```
+
+### 4-Road Trip
+_Request_
+```
+POST /api/v1/road_trip
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "origin": "Denver,CO",
+  "destination": "Grand Canyon Village,AZ",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+_Response_
+```
+{
+    "data": {
+        "id": null,
+        "type": "road_trip",
+        "attributes": {
+            "start_city": "Denver, CO",
+            "end_city": "Grand Canyon Village, AZ",
+            "travel_time": "12 hours and 6 minutes",
+            "weather_at_eta": {
+                "temperature": 87.82,
+                "conditions": "clear sky"
+            }
+        }
+    }
+}
+```
+
 
 ## Running the Tests
 
 Run all tests in application with `bundle exec rspec`. When test is complete, run `open coverage` to see where tests are being run and where they are not.
 
 
-## Deployment
-
-- To run this app locally, run `rails s` and navigate to `http://localhost:3000/` in your browser.
-- To run this app on Heroku, go to https://downdraft-backend.herokuapp.com/
-
-## Built Using
-- Ruby on Rails 5.2.6
-- Ruby 5.2.3
-
-<!-- ![Screenshot](lib/images/ADD-A-SCREENSHOT) -->
-
 ## Extensions
-- Implement Rubocop for strong Ruby code styling (in progress/complete)
-- Implement `has_secure_token` to generate API keys (planned)
+- Implement Rubocop for strong Ruby code styling (complete)
 - Implement Brakeman to identify and fix vulnerabilities (planned)
 
 ## Acknowledgments
 
-Thank you to OpenWeather, OpenLibrary, Unsplash, and MapQuest for allowing me to use your APIs. And thanks to you for reading through this project.
+Thank you to OpenWeather, OpenLibrary, Unsplash, and MapQuest for allowing me to use your APIs. And thanks to you for reading through this project!
