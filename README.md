@@ -36,7 +36,7 @@ Joe Mecha [GitHub](https://github.com/joemecha) • [LinkedIn](https://www.linke
 * Research, select, and consume an API based on your needs as a developer
 
 ## Getting Started
-Visit [Heroku](https://downdraft-backend.herokuapp.com/) or on [Local Host 3000](http://localhost:3000/) to get started with the steps below.
+Visit the endpoints on __[Heroku](https://joe-mecha-whether-sweater.herokuapp.com/)__ or on [Local Host 3000](http://localhost:3000/) after completing the setup steps below.
 
 ## Versions
 * Ruby 2.5.3
@@ -47,16 +47,16 @@ If you are running this API locally, follow the steps below:
   1. Fork and clone this repo
   2. Install gem packages by running `bundle`
   3. Setup the database: `rails db:(create)`
-  4. Obtain necessary API keys
-    * OpenWeather: 
-    * MapquestAPI:
-    * Unsplash API: 
-    * No key needed for OpenLibrary
+  4. Obtain necessary API keys:
+     * [OpenWeather](https://home.openweathermap.org/users/sign_up)
+     * [MapquestAPI](https://developer.mapquest.com/documentation/) (Click on 'join the community' to sign up and receive a key)
+     * [Unsplash API](https://unsplash.com/join)
+     * No key needed for OpenLibrary
   5. Protect your API keys by placing them in `config/application.yml`. Save under the following variable names:
-    * OpenWeather: `weather_api_key:`
-    * Maquest: `geocode_key:`
-    * Unsplash: `access_key:`
-    * Note: key strings must not be placed inside quotes
+     * OpenWeather: `weather_api_key:`
+     * Maquest: `geocode_key:`
+     * Unsplash: `access_key:`
+     * Note: key strings must not be placed inside quotes
   6. Run command `rails s` and navigate to http://localhost:3000 to consume API endpoints below
 
 If you are running the API via [Heroku](https://whether-sweater-backend.herokuapp.com/), simply consume endpoints below.
