@@ -1,5 +1,5 @@
 ![Title](lib/images/whether_sweater_title.jpg)
-[![Build Status](https://travis-ci.com/joemecha/whether-sweather.svg?branch=main)](https://travis-ci.com/joemecha/whether-sweater)
+[![Build Status](https://travis-ci.com/joemecha/whether-sweater.svg?branch=main&status=passed)](https://travis-ci.com/joemecha/whether-sweater)
 [![Rails Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop-rails)
 
 ## About
