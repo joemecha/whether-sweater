@@ -5,7 +5,7 @@ RSpec.describe 'RoadTripFacade' do
     it 'returns response to front end', :vcr do 
       origin = 'denver,co'
       destination = 'grand canyon village,az'
-      response = RouteFacade.get_trip_route(origin, destination)
+      response = RoadTripFacade.get_trip_route(origin, destination)
       expect(response).to be_a(RoadTrip)
     end
   end 
