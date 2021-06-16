@@ -6,21 +6,19 @@ RSpec.describe "Route Service", :vcr do
       origin = 'denver,co'
       destination = 'grand canyon village,az'
       results = RouteService.fetch_route_info(origin, destination)
-
       expect(results).to be_a(Hash)
-      expect(results).to have_key(:route)
-      expect(results[:route]).to have_key(:realTime)
+      expect(results).to have_key(:distance)
+      expect(results).to have_key(:realTime)
     end 
   end
   describe "Sad Path" do 
-    it "is an Impossible Route" do
+    it "is an Impossible Route", :vcr do
       origin = 'denver,co'
-      destination = 'okaya,japan'
+      destination = 'hilo,hi'
       results = RouteService.fetch_route_info(origin, destination)
-
       expect(results).to be_a(Hash)
-      expect(results).to have_key(:message)
-      expect(results[:messages).to eq('We are unable to route with the given locations.')
+      expect(results).to have_key(:routeError)
+      expect(results[:routeError][:errorCode]).to eq(2)
     end 
   end
 end
