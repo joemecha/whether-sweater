@@ -13,7 +13,7 @@ RSpec.describe "Route Service", :vcr do
     end 
   end
   describe "Sad Path" do 
-    it "Impossible Route" do
+    it "is an Impossible Route" do
       origin = 'denver,co'
       destination = 'okaya,japan'
       results = RouteService.fetch_route_info(origin, destination)
