@@ -4,7 +4,7 @@ class RoadTripFacade
       return :error
     else
       route_info = RouteService.fetch_route_info(origin, destination)
-      
+      travel_time = readable_travel_time(route_info[:realTime])
       coord = CoordinatesService.fetch_lat_lon(destination)
       eta = (Time.now.to_i + route_info[:realTime])
       
@@ -25,11 +25,21 @@ class RoadTripFacade
           if (eta + Time.now.to_i) >= hour[:dt]
             temperature = hour[:temp]
             conditions = hour[:weather][0][:description]
-          end 
-          require 'pry'; binding.pry
+          end
         end 
       end
-      RoadTrip.new(route_info, temperature, conditions)
+      RoadTrip.new(route_info, travel_time, temperature, conditions)
     end
+  end
+
+  def readable_travel_time(sec)
+    days = (sec/172800).to_i
+    hours = ((sec/3600) %60).to_i 
+    minutes = ((sec/ 60) %60).to_i
+    if days > 0
+      return "#{days} days, #{hours} hours and #{minutes} minutes"
+    else
+      return "#{hours} hours and #{minutes} minutes"
+    end 
   end
 end
