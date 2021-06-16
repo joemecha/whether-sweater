@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Retrieve a background image url for a city' do
+describe 'Background Image Request - /api/v1/backrounds' do
   describe 'Happy Path' do
     it 'Sends required image url and photographer credits', :vcr do
       get '/api/v1/backgrounds', params: {location:"denver,co"}

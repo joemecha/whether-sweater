@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User login aka authentication api/v1/sessions' do
+describe 'User authentication - /api/v1/sessions' do
   before :each do
     User.destroy_all
     post '/api/v1/users', params: {email:"whatever@example.com", password: "password", password_confirmation: "password"} 

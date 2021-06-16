@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'New user registration' do
+describe 'New user registration Request - /api/v1/users' do
   describe 'Happy Path' do
     it 'Creates a user in the database and sends required response' do
       User.destroy_all
