@@ -32,7 +32,7 @@ class RoadTripFacade
     end
   end
 
-  def readable_travel_time(sec)
+  def self.readable_travel_time(sec)
     days = (sec/172800).to_i
     hours = ((sec/3600) %60).to_i 
     minutes = ((sec/ 60) %60).to_i
