@@ -1,6 +1,6 @@
 class RouteService
   def self.fetch_route_info(origin, destination)
-    response = conn.get("/directions/v2/route?from=#{origin}&to=#{destination}")
+    response = conn.get("/directions/v2/route?from=#{origin}&to=#{destination}") # add params to block
     json = parse_json(response)
     json[:route]
   end
