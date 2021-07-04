@@ -1,6 +1,5 @@
 class RoadTripFacade
   def self.get_trip_route(origin, destination)
-    require 'pry'; binding.pry
     if origin == '' || destination == ''
       :error
     else
