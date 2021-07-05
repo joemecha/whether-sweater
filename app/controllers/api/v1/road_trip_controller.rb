@@ -6,7 +6,7 @@ class Api::V1::RoadTripController < ApplicationController
       render json: { errors: 'Missing or incorrect key' }, status: :bad_request
     else
       road_trip = RoadTripFacade.get_trip_route(params[:origin], params[:destination])
-      if road_trip.has_key?(:routeError) # Non-drivable route handling
+      if road_trip.class != RoadTrip # Non-drivable route handling
         render json: { errors: 'Impossible route'}, status: :bad_request
       else
         render json: RoadTripSerializer.new(road_trip)

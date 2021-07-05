@@ -4,8 +4,7 @@ class RoadTripFacade
       :error
     else
       route_info = RouteService.fetch_route_info(origin, destination)
-      # Handles edge case of route that cannot be driven
-      if route_info.has_key?(:routeError)
+      if route_info[:routeError][:errorCode] == 2 # Handles edge case of route that cannot be driven
         return route_info 
       else
         travel_time = readable_travel_time(route_info[:realTime])
