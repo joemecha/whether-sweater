@@ -1,4 +1,2 @@
-class ApplicationController < ActionController::API
-  def welcome
-  end
+class ApplicationController < ActionController::Base
 end
