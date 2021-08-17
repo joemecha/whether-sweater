@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/', to: 'application#welcome'
-  
+  get '/', to: 'welcome#welcome'
+
   namespace :api do
     namespace :v1 do
       get '/forecast', to: 'forecast#index'

@@ -1,0 +1,331 @@
+<div style="font-family:helvetica,san-serif">
+  <h1 id="whether-sweater-api">Whether, Sweater API 👕☀️🌤⛈🧥</h1>
+  <h3 id="welcome-to-whether-sweater-api-back-end-of-a-service-oriented-app-that-allows-users-to-see-the-current-weather-as-well-as-the-forecasted-weather-at-the-destination-">Welcome to Whether, Sweater API, back end of a service-oriented app that allows users to see the current weather as well as the forecasted weather at the destination.</h3>
+  <br>
+  <h2 id="api-endpoints">API Endpoints</h2>
+  <p>The following are all API endpoints. Note, some endpoints have optional or required query parameters.</p>
+  <ul>
+  <li>All endpoints run off <a href="https://joe-mecha-whether-sweater.herokuapp.com/">https://joe-mecha-whether-sweater.herokuapp.com/</a> on Heroku</li>
+  </ul>
+  <h3 id="1a-retrieve-weather-for-a-city-">1a-Retrieve weather for a city:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>GET</code></td>
+  <td><code>/api/v1/forecast?location=denver,co</code></td>
+  <td>Retrieve specified weather data for a logged in user.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3 id="1b-background-image-for-the-city-in-1a-">1b-Background Image for the city in 1a:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>GET</code></td>
+  <td><code>/api/v1/backgrounds?location=denver,co</code></td>
+  <td>Retrieve a background image for the city in the weather call.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3 id="1c-books-for-a-city-">1c-Books for a city:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>GET</code></td>
+  <td><code>/api/v1/book-search?location=denver,co&amp;quantity=7</code></td>
+  <td>Retrieve a list of books for a (well-known) city.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3 id="2-user-registration-">2-User Registration:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>POST</code></td>
+  <td><code>/api/v1/users</code></td>
+  <td>To be utilized by front end. Successful request adds a new user to the database. Encrypts password and replies with unique api key.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3 id="3-user-authentication-">3-User Authentication:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>POST</code></td>
+  <td><code>/api/v1/sessions</code></td>
+  <td>To be utilized by front end. Checks user credentials and responds with API key</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3 id="4-road-trip-">4-Road Trip:</h3>
+  <table border="1" >
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>URL</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>POST</code></td>
+  <td><code>/api/v1/road_trip</code></td>
+  <td>To be utilized by front end. Provides travel time and weather forecast at destination at ETA.</td>
+  </tr>
+  </tbody>
+  </table>
+  <br>
+  <br>
+  <h2 id="examples">Examples</h2>
+  <h3 id="1-retrieve-weather-for-a-city-for-denver-colorado-">1-Retrieve weather for a city for Denver, Colorado:</h3>
+  <pre><code>{
+    <span class="hljs-string">"data"</span>: {
+      <span class="hljs-string">"id"</span>: null,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"forecast"</span>,
+      <span class="hljs-string">"attributes"</span>: {
+        <span class="hljs-string">"current_weather"</span>: {
+          <span class="hljs-string">"datetime"</span>: <span class="hljs-string">"2020-09-30 13:27:03 -0600"</span>,
+          <span class="hljs-string">"temperature"</span>: <span class="hljs-number">79</span>.<span class="hljs-number">4</span>,
+          etc
+        },
+        <span class="hljs-string">"daily_weather"</span>: [
+          {
+            <span class="hljs-string">"date"</span>: <span class="hljs-string">"2020-10-01"</span>,
+            <span class="hljs-string">"sunrise"</span>: <span class="hljs-string">"2020-10-01 06:10:43 -0600"</span>,
+            etc
+          },
+          <span class="hljs-meta">{...}</span> etc
+        ],
+        <span class="hljs-string">"hourly_weather"</span>: [
+          {
+            <span class="hljs-string">"time"</span>: <span class="hljs-string">"14:00:00"</span>,
+            <span class="hljs-string">"conditions"</span>: <span class="hljs-string">"cloudy with a chance of meatballs"</span>,
+            etc
+          },
+          <span class="hljs-meta">{...}</span> etc
+        ]
+      }
+    }
+  }
+  </code></pre><h3 id="1b-city-background-image-">1b-City Background Image:</h3>
+  <pre><code>status: <span class="hljs-number">200</span>
+  body:
+
+  {
+      <span class="hljs-string">"data"</span>: {
+          <span class="hljs-string">"id"</span>: null,
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"image"</span>,
+          <span class="hljs-string">"attributes"</span>: {
+              <span class="hljs-string">"image"</span>: {
+                  <span class="hljs-string">"image_url"</span>: <span class="hljs-string">"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=MnwyMzkzMTR8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkNjb3xlbnwwfDB8fHwxNjIzNjMzNTc0&amp;ixlib=rb-1.2.1&amp;q=85"</span>,
+                  <span class="hljs-string">"description"</span>: <span class="hljs-string">"Night Time Downtown Denver"</span>,
+                  <span class="hljs-string">"credits"</span>: {
+                      <span class="hljs-string">"author"</span>: <span class="hljs-string">"Ryan De Hamer"</span>,
+                      <span class="hljs-string">"source"</span>: <span class="hljs-string">"https://unsplash.com/@rdehamer"</span>
+                  }
+              }
+          }
+      }
+  }
+  </code></pre><h3 id="1c-books-for-a-city-">1c-Books for a city:</h3>
+  <pre><code>{
+      <span class="hljs-attr">"data"</span>: {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-literal">null</span>,
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"books"</span>,
+          <span class="hljs-attr">"attributes"</span>: {
+              <span class="hljs-attr">"destination"</span>: <span class="hljs-string">"denver,co"</span>,
+              <span class="hljs-attr">"forecast"</span>: {
+                  <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"clear sky"</span>,
+                  <span class="hljs-attr">"temperature"</span>: <span class="hljs-string">"95 F"</span>
+              },
+              <span class="hljs-attr">"total_books_found"</span>: <span class="hljs-number">35992</span>,
+              <span class="hljs-attr">"books"</span>: [
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"9780762507849"</span>,
+                          <span class="hljs-string">"0762507845"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Denver, Co"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"Universal Map Enterprises"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"1427401683"</span>,
+                          <span class="hljs-string">"9781427401687"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"University of Denver Co 2007"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"College Prowler"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"9780762557363"</span>,
+                          <span class="hljs-string">"0762557362"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Denver Co Deluxe Flip Map"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"Universal Map Enterprises"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"9780883183663"</span>,
+                          <span class="hljs-string">"0883183668"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Photovoltaic safety, Denver, CO, 1988"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"American Institute of Physics"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"9812582622"</span>,
+                          <span class="hljs-string">"9789812582621"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Insight Fleximap Denver, CO (Insight Fleximaps)"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"American Map Corporation"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"0738518700"</span>,
+                          <span class="hljs-string">"9780738518701"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Five Points Neighborhood of Denver  (CO)"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"Arcadia  Publishing (SC)"</span>
+                      ]
+                  },
+                  {
+                      <span class="hljs-attr">"isbn"</span>: [
+                          <span class="hljs-string">"0762538627"</span>,
+                          <span class="hljs-string">"9780762538621"</span>
+                      ],
+                      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Denver, Co Vicinity (City Wall Maps)"</span>,
+                      <span class="hljs-attr">"publisher"</span>: [
+                          <span class="hljs-string">"Universal Map Enterprises"</span>
+                      ]
+                  }
+              ]
+          }
+      }
+  }
+  </code></pre><h3 id="2-user-registration">2-User Registration</h3>
+  <p><em>Request</em></p>
+  <pre><code>POST <span class="hljs-regexp">/api/</span>v1/users
+  Content-<span class="hljs-string">Type:</span> application/json
+  <span class="hljs-string">Accept:</span> application/json
+
+  {
+    <span class="hljs-string">"email"</span>: <span class="hljs-string">"whatever@example.com"</span>,
+    <span class="hljs-string">"password"</span>: <span class="hljs-string">"password"</span>,
+    <span class="hljs-string">"password_confirmation"</span>: <span class="hljs-string">"password"</span>
+  }
+  </code></pre><p><em>Response</em></p>
+  <pre><code>status: <span class="hljs-number">201</span>
+  body:
+
+  {
+    <span class="hljs-string">"data"</span>: {
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"users"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>,
+      <span class="hljs-string">"attributes"</span>: {
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"whatever@example.com"</span>,
+        <span class="hljs-string">"api_key"</span>: <span class="hljs-string">"jgn983hy48thw9begh98h4539h4"</span>
+      }
+    }
+  }
+  </code></pre><h3 id="3-user-authentication">3-User Authentication</h3>
+  <p><em>Request</em></p>
+  <pre><code>POST <span class="hljs-regexp">/api/</span>v1/sessions
+  Content-<span class="hljs-string">Type:</span> application/json
+  <span class="hljs-string">Accept:</span> application/json
+
+  {
+    <span class="hljs-string">"email"</span>: <span class="hljs-string">"whatever@example.com"</span>,
+    <span class="hljs-string">"password"</span>: <span class="hljs-string">"password"</span>
+  }
+  </code></pre><p><em>Response</em></p>
+  <pre><code>status: <span class="hljs-number">200</span>
+  body:
+
+  {
+    <span class="hljs-string">"data"</span>: {
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"users"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>,
+      <span class="hljs-string">"attributes"</span>: {
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"whatever@example.com"</span>,
+        <span class="hljs-string">"api_key"</span>: <span class="hljs-string">"jgn983hy48thw9begh98h4539h4"</span>
+      }
+    }
+  }
+  </code></pre><h3 id="4-road-trip">4-Road Trip</h3>
+  <p><em>Request</em></p>
+  <pre><code>POST /api/v1/road_trip
+  Content-<span class="hljs-keyword">Type</span>: application/json
+  <span class="hljs-keyword">Accept</span>: application/json
+
+  <span class="hljs-keyword">body</span>:
+
+  {
+    <span class="hljs-string">"origin"</span>: <span class="hljs-string">"Denver,CO"</span>,
+    <span class="hljs-string">"destination"</span>: <span class="hljs-string">"Grand Canyon Village,AZ"</span>,
+    <span class="hljs-string">"api_key"</span>: <span class="hljs-string">"jgn983hy48thw9begh98h4539h4"</span>
+  }
+  </code></pre><p><em>Response</em></p>
+  <pre><code>{
+      <span class="hljs-attr">"data"</span>: {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-literal">null</span>,
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"road_trip"</span>,
+          <span class="hljs-attr">"attributes"</span>: {
+              <span class="hljs-attr">"start_city"</span>: <span class="hljs-string">"Denver, CO"</span>,
+              <span class="hljs-attr">"end_city"</span>: <span class="hljs-string">"Grand Canyon Village, AZ"</span>,
+              <span class="hljs-attr">"travel_time"</span>: <span class="hljs-string">"12 hours and 6 minutes"</span>,
+              <span class="hljs-attr">"weather_at_eta"</span>: {
+                  <span class="hljs-attr">"temperature"</span>: <span class="hljs-number">87.82</span>,
+                  <span class="hljs-attr">"conditions"</span>: <span class="hljs-string">"clear sky"</span>
+              }
+          }
+      }
+  }
+  </code></pre>
+</div>
