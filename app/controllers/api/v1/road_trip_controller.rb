@@ -1,7 +1,9 @@
 class Api::V1::RoadTripController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     if params[:origin] == '' || !params[:origin].ascii_only? || params[:destination] == '' || !params[:destination].ascii_only?
-      render json: { errors: 'Missing or incorrect query params' }, status: :bad_request
+      render json: { errors: 'Missing or incorrect origin and or location' }, status: :bad_request
     elsif params[:api_key].blank?
       render json: { errors: 'Missing or incorrect key' }, status: :bad_request
     else

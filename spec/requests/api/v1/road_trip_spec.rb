@@ -31,7 +31,7 @@ describe 'Road Trip Request - /api/v1/road_trip' do
       expect(response.status).to eq(400)
       expect(trip_info).to be_a Hash
       expect(trip_info).to have_key(:errors)
-      expect(trip_info[:errors]).to eq("Missing or incorrect query params")
+      expect(trip_info[:errors]).to eq("Missing or incorrect origin and or location")
     end
     it 'Sends an error message when params incorrect', :vcr do
       post '/api/v1/road_trip', params: {origin:"denver,co", destination:"", api_key:"#{@user.api_key}"}
@@ -40,7 +40,7 @@ describe 'Road Trip Request - /api/v1/road_trip' do
       expect(response.status).to eq(400)
       expect(trip_info).to be_a Hash
       expect(trip_info).to have_key(:errors)
-      expect(trip_info[:errors]).to eq("Missing or incorrect query params")
+      expect(trip_info[:errors]).to eq("Missing or incorrect origin and or location")
     end
     it 'Sends an error message when no possible driving route', :vcr do
       post '/api/v1/road_trip', params: {origin:"denver,co", destination:"hilo,hi", api_key:"#{@user.api_key}"}

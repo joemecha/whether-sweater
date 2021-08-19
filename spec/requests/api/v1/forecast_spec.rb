@@ -18,7 +18,7 @@ describe 'Forecast Request - /api/v1/forecast' do
       expect(response.status).to eq(400)
       expect(weather_report).to be_a Hash
       expect(weather_report).to have_key(:errors)
-      expect(weather_report[:errors]).to eq("Missing or incorrect query params")
+      expect(weather_report[:errors]).to eq("Missing or incorrect location")
     end
   end
 end
