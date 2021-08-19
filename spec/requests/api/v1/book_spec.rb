@@ -18,7 +18,7 @@ describe 'Book Search Request - /api/v1/book-search' do
       expect(response.status).to eq(400)
       expect(weather_report).to be_a Hash
       expect(weather_report).to have_key(:errors)
-      expect(weather_report[:errors]).to eq("Missing or incorrect query params")
+      expect(weather_report[:errors]).to eq("Missing or incorrect location")
     end
     it 'Sends an error message when quantity is less than one', :vcr do
       get '/api/v1/book-search', params: {location:"denver,co", quantity:"0"}
@@ -27,7 +27,7 @@ describe 'Book Search Request - /api/v1/book-search' do
       expect(response.status).to eq(400)
       expect(weather_report).to be_a Hash
       expect(weather_report).to have_key(:errors)
-      expect(weather_report[:errors]).to eq("Missing or incorrect query params")
+      expect(weather_report[:errors]).to eq("Missing or incorrect location")
     end
 
     # Add test for params[:quantity] NOT an integer

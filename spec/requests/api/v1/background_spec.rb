@@ -18,7 +18,7 @@ describe 'Background Image Request - /api/v1/backrounds' do
       expect(response.status).to eq(400)
       expect(image_info).to be_a Hash
       expect(image_info).to have_key(:errors)
-      expect(image_info[:errors]).to eq("Missing or incorrect query params")
+      expect(image_info[:errors]).to eq("Missing or incorrect location")
     end
     it 'Sends an error message when location not found', :vcr do
       get '/api/v1/backgrounds', params: {location:""}
@@ -27,7 +27,7 @@ describe 'Background Image Request - /api/v1/backrounds' do
       expect(response.status).to eq(400)
       expect(image_info).to be_a Hash
       expect(image_info).to have_key(:errors)
-      expect(image_info[:errors]).to eq("Missing or incorrect query params")
+      expect(image_info[:errors]).to eq("Missing or incorrect location")
     end
   end
 end
