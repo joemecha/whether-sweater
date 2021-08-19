@@ -1,5 +1,7 @@
 require 'securerandom'
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def create
     if params[:email].blank?
       render json: { errors: 'Email cannot be blank' }, status: :bad_request
